@@ -1,5 +1,7 @@
 import React from 'react';
-import './style/Wallet.scss';
+import { useNavigate } from 'react-router-dom';
+
+// Assets | Icons
 import { CgProfile } from "react-icons/cg";
 import { IoIosLogOut } from "react-icons/io";
 import { FiPlus } from "react-icons/fi";
@@ -7,13 +9,17 @@ import { FiSend } from "react-icons/fi";
 import { AiOutlineSwap } from "react-icons/ai";
 import { FiDollarSign } from "react-icons/fi";
 
+// css :
+import './style/Wallet.scss';
+import { FaArrowDown } from 'react-icons/fa';
+
 const Wallet = () => {
+  const navigate = useNavigate ();
   return (
     <div className="wallet-container">
       <div className="account-header">
-        <div className="account-icon"><CgProfile size={25}  />
-        <div className="account-name">Profile</div></div>
-        <div className="logout"><IoIosLogOut size={25}/></div>
+        <div className="account-icon">A1</div>
+        <div className="center"><h3>Crypto Wallet</h3></div>
       </div>
 
       <div className="balance-info">
@@ -25,14 +31,14 @@ const Wallet = () => {
       </div>
 
       <div className="actions">
-        <button className="action-btn"><FiPlus size={25}/> Receive</button>
-        <button className="action-btn"><FiSend  size={25}/> Send</button>
-        <button className="action-btn"><AiOutlineSwap  size={25}/> Swap</button>
-        <button className="action-btn"><FiDollarSign  size={25}/> Buy</button>
+        <button className="action-btn"  onClick={()=>navigate('/send')}><FiSend size={25} /> Send</button>
+        <button className="action-btn" onClick={()=>navigate('/buy')}><FiDollarSign size={25} /> Buy</button>
+        <button className="action-btn"><FiPlus size={25} /> Save</button>
       </div>
 
       <div className="search-bar">
-       <h3>Recent transections</h3>
+        <p>Recent transections :</p>
+        <FaArrowDown />
       </div>
 
       <div className="token-info">
